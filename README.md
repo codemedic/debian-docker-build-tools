@@ -44,3 +44,16 @@ RUN ( \
 )
 
 CMD "/bin/bash"
+```
+
+## Contributions
+
+Please feel free to submit bugs and pull requests; always make sure you log a bug before making changes so that the work can be easily reviewed with appropriate context.
+
+## Coding Standards and Ethics
+
+Use common sense; follow what you see in the file you are modifying. I will be happy to accomodate variations as long as you can reason it, the code is well written and it is maintainable.
+
+## LICENSE
+
+This code is licensed under MIT license. See [`LICENSE`](LICENSE) for details.

@@ -1,5 +1,10 @@
 #!/bin/sh
 
+: ${BUILD_DEPS:=}
+: ${APP_DEPS:=}
+: ${DEBIAN_FRONTEND:=}
+: ${REMOVE:=}
+
 _is_initialised() {
     [ -n "$DEBIAN_FRONTEND" ];
 }

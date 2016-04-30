@@ -22,12 +22,25 @@ ENV BUILD_TOOLS_VERSION=1.0.0
 RUN ( \
   wget -O- https://github.com/redmatter/debian-docker-build-tools/archive/{BUILD_TOOLS_VERSION}.tar.gz | tar -C /tmp/build-tools -xzf -
   source /tmp/build-tools/functions.sh
+
   ...
-  _install pkg1 pkg2
-  _install_for_build pkg3
+
+  # choose some runtime dependencies
+  _choose_package pkg1 pkg2
+
+  # choose some build dependencies
+  _choose_package -build-dep pkg3 pkg4
+
+  # install chosen packages and pkg5
+  _install_package pkg5
+
   ...
-  _uninstall pkg3
-  # does auto clean-up; set _auto_cleanup=0 if you do not want this to happen
+
+  # remove a package (use -now option to remove it now rather than during auto-cleanup)
+  _remove_package pkg1
+
+  # does auto clean-up; set _do_auto_cleanup=false if you do not want this to happen
+  # ... auto cleanup happens here
 )
 
 CMD "/bin/bash"

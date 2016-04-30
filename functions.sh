@@ -27,7 +27,7 @@ _choose_package() {
 
 _install_package() {
     _initialise
-    if [ -z "$@$BUILD_DEPS$APP_DEPS" ]; then
+    if [ "$@$BUILD_DEPS$APP_DEPS" = "" ]; then
         return 0;
     fi
 

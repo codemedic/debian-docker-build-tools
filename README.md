@@ -18,10 +18,10 @@ I have made a few assumptions here
 ```
 FROM debian:jessie
 ENV BUILD_TOOLS_VERSION=1.0.0
+ADD https://raw.githubusercontent.com/codemedic/debian-docker-build-tools/${BUILD_TOOLS_VERSION}/functions.sh /tmp/functions.sh
 ...
 RUN ( \
-  wget -O- https://github.com/redmatter/debian-docker-build-tools/archive/{BUILD_TOOLS_VERSION}.tar.gz | tar -C /tmp/build-tools -xzf -
-  source /tmp/build-tools/functions.sh
+  . /tmp/functions.sh
 
   ...
 

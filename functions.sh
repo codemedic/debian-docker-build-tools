@@ -26,14 +26,14 @@ _choose_package() {
 }
 
 _install_package() {
-    _initialise
-    if [ "$@$BUILD_DEPS$APP_DEPS" = "" ]; then
+    if [ -z "${APP_DEPS}" -a -z "${BUILD_DEPS}" ] && [ $# -eq 0 ]; then
         return 0;
     fi
 
-    local packages="$@ $BUILD_DEPS $APP_DEPS"
+    _initialise
+
     apt-get update; # get latest package list
-    apt-get install -y --no-install-recommends ${packages};
+    apt-get install -y --no-install-recommends $@ $BUILD_DEPS $APP_DEPS;
 }
 
 _remove_package() {
@@ -49,7 +49,7 @@ _remove_package() {
     fi
 
     if $now; then
-        apt-get remove -y $@; \
+        apt-get remove --purge -y $@; \
         return;
     fi
 

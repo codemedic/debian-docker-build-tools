@@ -2,6 +2,8 @@
 
 Bash scripts for use in a debian based Dockerfile.
 
+*NOTE*: Please note that this is a work in progress (proof of concept).
+
 ## Why?
 
 When working with debian based `Dockerfile`, I often find in a situation where I copy paste the same code over and over. This is a (stop gap) solution to get around that.

@@ -23,23 +23,23 @@ ENV BUILD_TOOLS_VERSION=1.0.0
 ADD https://raw.githubusercontent.com/codemedic/debian-docker-build-tools/${BUILD_TOOLS_VERSION}/functions.sh /tmp/functions.sh
 ...
 RUN ( \
-  . /tmp/functions.sh
+  . /tmp/functions.sh; \
 
   ...
 
   # choose some runtime dependencies
-  _choose_package pkg1 pkg2
+  _choose_package pkg1 pkg2; \
 
   # choose some build dependencies
-  _choose_package -build-dep pkg3 pkg4
+  _choose_package -build-dep pkg3 pkg4; \
 
   # install chosen packages and pkg5
-  _install_package pkg5
+  _install_package pkg5; \
 
   ...
 
   # remove a package (use -now option to remove it now rather than during auto-cleanup)
-  _remove_package pkg1
+  _remove_package pkg1; \
 
   # does auto clean-up; set _do_auto_cleanup=false if you do not want this to happen
   # ... auto cleanup happens here
